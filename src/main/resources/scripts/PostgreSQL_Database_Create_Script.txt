@@ -1,0 +1,128 @@
+CREATE TABLE Servico (
+    nome varchar(50),
+    valor varchar(20),
+    id SERIAL PRIMARY KEY,
+    fk_Empresa_id varchar(14)
+);
+
+CREATE TABLE Casamento (
+    id SERIAL PRIMARY KEY,
+    fk_Cerimonia_id Int,
+    fk_Civil_id Int,
+    fk_Conjuge1 Int,
+    fk_Conjuge2 Int
+);
+
+CREATE TABLE Civil (
+    id SERIAL PRIMARY KEY,
+    endereco varchar(100),
+    horario Date
+);
+
+CREATE TABLE Cerimonia (
+    id SERIAL PRIMARY KEY,
+    endereco varchar(100),
+    horario Date
+);
+
+CREATE TABLE Pessoa (
+    id SERIAL PRIMARY KEY,
+    nome varchar(50) NOT NULL,
+    cpf  varchar(11) UNIQUE NOT NULL,
+    email varchar(50) UNIQUE NOT NULL,
+    sexo varchar(10)
+);
+
+CREATE TABLE Testemunha (
+    fk_Pessoa_id Int,
+    fk_Casamento_id Int,
+    PRIMARY KEY(fk_Pessoa_id, fk_Casamento_id)
+);
+
+CREATE TABLE Convida (
+    fk_Pessoa_id Int,
+    fk_Casamento_id Int,
+    PRIMARY KEY(fk_Pessoa_id, fk_Casamento_id)
+);
+
+CREATE TABLE Empresa (
+    id SERIAL PRIMARY KEY,
+    cnpj varchar(14) NOT NULL UNIQUE,
+    telefone varchar(11),
+    endereco varchar(10),
+    nome varchar(50) NOT NULL
+);
+
+
+CREATE TABLE Conjuge (
+    senha varchar(150) NOT NULL,
+    telefone varchar(11),
+    fk_Pessoa_id Int PRIMARY KEY
+);
+
+
+CREATE TABLE Negociar (
+    fk_Casamento_id Int NOT NULL,
+    fk_Servico_id Int NOT NULL,
+    PRIMARY KEY (fk_Casamento_id, fk_Servico_Id)
+);
+ 
+ALTER TABLE Servico ADD CONSTRAINT FK_Servico_1
+    FOREIGN KEY (fk_Empresa_id)
+    REFERENCES Empresa (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Casamento ADD CONSTRAINT FK_Casamento_1
+    FOREIGN KEY (fk_Cerimonia_id)
+    REFERENCES Cerimonia (id)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Casamento ADD CONSTRAINT FK_Casamento_2
+    FOREIGN KEY (fk_Civil_id)
+    REFERENCES Civil (id)
+    ON DELETE RESTRICT;
+
+ALTER TABLE Casamento ADD CONSTRAINT FK_Casamento_3
+    FOREIGN KEY (fk_Conjuge1)
+    REFERENCES Pessoa (id)
+    ON DELETE RESTRICT;
+
+ALTER TABLE Casamento ADD CONSTRAINT FK_Casamento_4
+    FOREIGN KEY (fk_Conjuge2)
+    REFERENCES Pessoa (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Testemunha ADD CONSTRAINT FK_Pessoa_1
+    FOREIGN KEY (fk_Casamento_id)
+    REFERENCES Casamento (id)
+    ON DELETE RESTRICT;
+
+ALTER TABLE Testemunha ADD CONSTRAINT FK_Pessoa_2
+    FOREIGN KEY (fk_Pessoa_id)
+    REFERENCES Pessoa (id)
+    ON DELETE RESTRICT;
+  
+ALTER TABLE Conjuge ADD CONSTRAINT FK_Conjuge_1
+    FOREIGN KEY (fk_Pessoa_id)
+    REFERENCES Pessoa (id)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Negociar ADD CONSTRAINT FK_Negociar_1
+    FOREIGN KEY (fk_Casamento_id)
+    REFERENCES Casamento (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Negociar ADD CONSTRAINT FK_Negociar_2
+    FOREIGN KEY (fk_Servico_id)
+    REFERENCES Servico (id)
+    ON DELETE SET NULL;
+
+ALTER TABLE Convida ADD CONSTRAINT FK_Pessoa_3
+    FOREIGN KEY (fk_Pessoa_id)
+    REFERENCES Pessoa (id)
+    ON DELETE RESTRICT;
+
+ALTER TABLE Convida ADD CONSTRAINT FK_Pessoa_4
+    FOREIGN KEY (fk_Casamento_id)
+    REFERENCES Casamento (id)
+    ON DELETE RESTRICT;
