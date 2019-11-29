@@ -4,11 +4,10 @@ import br.ufop.brTomaz.model.dao.MarriageDao;
 import br.ufop.brTomaz.model.db.DB;
 import br.ufop.brTomaz.model.db.DbException;
 import br.ufop.brTomaz.model.entities.Marriage;
+import br.ufop.brTomaz.model.entities.Person;
 import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class MarriageDaoJDBC implements MarriageDao {
@@ -24,7 +23,7 @@ public class MarriageDaoJDBC implements MarriageDao {
 
         try {
             preparedStatement = connection.prepareStatement(
-                    "INSERT INTO Cerimônia " +
+                    "INSERT INTO Cerimonia " +
                             "(horario, endereco) " +
                             "VALUES (?, ?)"
             );
@@ -32,23 +31,17 @@ public class MarriageDaoJDBC implements MarriageDao {
             preparedStatement.setDate(1, new java.sql.Date(marriage.getDate().getTime()));
             preparedStatement.setString(2, marriage.getPlace());
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            Alert alert;
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT MAX(id) FROM Cerimonia"
+            );
 
-            if(rowsAffected > 0) {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Cadastro efetuado com sucesso");
-            }
-            else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Não foi possível realizar o cadastro");
-                throw new DbException("Unexpected error! No rows affected");
-            }
+            int id = (resultSet.next()) ? resultSet.getInt(1) : -1;
+            marriage.setId(id);
+
+            System.out.println("Marriage id:" + marriage.getId());
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
@@ -58,17 +51,33 @@ public class MarriageDaoJDBC implements MarriageDao {
     }
 
     @Override
-    public void update(Marriage marriage) {
+    public Marriage findById(Integer id) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
-    }
+        try {
+            preparedStatement = connection.prepareStatement(
+                    "SELECT * " +
+                            "FROM Cerimonia " +
+                            "WHERE  id = ?"
+            );
 
-    @Override
-    public void deleteById(String id) {
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
 
-    }
+            if(resultSet.next()) {
+                java.util.Date date = resultSet.getDate("horario");
+                String place = resultSet.getString("endereco");
 
-    @Override
-    public Marriage findById(String id) {
+                return new Marriage(place, date);
+            }
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeStatement(preparedStatement);
+            DB.closeResultSet(resultSet);
+        }
         return null;
     }
 

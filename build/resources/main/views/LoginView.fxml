@@ -48,7 +48,7 @@
                   <Font name="Serif Regular" size="14.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton fx:id="btnSignIn" buttonType="RAISED" layoutX="50.0" layoutY="394.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" ripplerFill="#5433b0" styleClass="btnLogin" text="Entrar">
+            <JFXButton fx:id="btnSignIn" buttonType="RAISED" layoutX="50.0" layoutY="394.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#signIn" prefHeight="40.0" prefWidth="300.0" ripplerFill="#5433b0" styleClass="btnLogin" text="Entrar">
                <font>
                   <Font name="Serif Bold" size="15.0" />
                </font>

@@ -31,23 +31,8 @@ public class WitnessDaoJDBC implements WitnessDao {
             preparedStatement.setString(1, person.getCpf());
             preparedStatement.setInt(2, wedding.getId());
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            Alert alert;
-
-            if(rowsAffected > 0) {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Cadastro efetuado com sucesso");
-            }
-            else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Não foi possível realizar o cadastro");
-                throw new DbException("Unexpected error! No rows affected");
-            }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }

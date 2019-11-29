@@ -1,5 +1,6 @@
 package br.ufop.brTomaz.application;
 
+import br.ufop.brTomaz.model.entities.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.stage.StageStyle;
 
 public class Program extends Application {
     public static Stage stage = null;
+    public static Person currentUser;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

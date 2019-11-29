@@ -2,6 +2,8 @@ package br.ufop.brTomaz.controllers;
 
 import br.ufop.brTomaz.application.Program;
 import br.ufop.brTomaz.model.entities.Spouse;
+import br.ufop.brTomaz.util.Constraints;
+import br.ufop.brTomaz.util.Singleton;
 import br.ufop.brTomaz.util.Utils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -14,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -22,9 +25,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class Register1Controller implements Initializable {
-    protected static Spouse spouse1;
-
+public class RegisterController implements Initializable {
     @FXML
     private JFXTextField txtName;
 
@@ -52,8 +53,21 @@ public class Register1Controller implements Initializable {
     @FXML
     private Pane contentArea;
 
+    @FXML
+    private Label labelPerson;
+
+    private Boolean isFirstPerson = false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if(Singleton.getInstance().getSpouse1() == null) {
+            labelPerson.setText("Primeira pessoa");
+            isFirstPerson = true;
+        }
+        else {
+            labelPerson.setText("Segunda pessoa");
+        }
+
         ObservableList<String> observableList = FXCollections.observableArrayList(Arrays.asList("Masculino",
                 "Feminino"));
         cmbSex.setItems(observableList);
@@ -64,10 +78,15 @@ public class Register1Controller implements Initializable {
         txtCPF.textProperty().addListener((ob, ov, nv) -> {
             sizeCPF.setValue(nv.length() < 11);
         });
-
         txtPhone.textProperty().addListener((ob, ov, nv) -> {
             sizePhone.setValue(nv.length() < 11);
         });
+
+        Constraints.setTextFieldInteger(txtCPF);
+        Constraints.setTextFieldMaxLength(txtCPF, 11);
+
+        Constraints.setTextFieldInteger(txtPhone);
+        Constraints.setTextFieldMaxLength(txtPhone, 11);
 
         btnNext.disableProperty().bind(
                 txtName.textProperty().isEmpty()
@@ -103,10 +122,21 @@ public class Register1Controller implements Initializable {
         String password = txtPassword.getText();
         String confirmPassword = txtConfirmPassword.getText();
 
-        spouse1 = new Spouse(name, cpf, email, password, phone);
+        Spouse spouse = new Spouse(name, cpf, email, password, phone, sex);
 
-        if(!btnNext.isDisable()) {
-            Utils.setView("/views/RegisterView2.fxml", contentArea);
+        if(isFirstPerson) {
+            Singleton.getInstance().setSpouse1(spouse);
+
+            if (!btnNext.isDisable()) {
+                Utils.setView("/views/RegisterView.fxml", contentArea);
+            }
+        }
+        else {
+            Singleton.getInstance().setSpouse2(spouse);
+
+            if(!btnNext.isDisable()) {
+                Utils.setView("/views/WitnessView.fxml", contentArea);
+            }
         }
     }
 }

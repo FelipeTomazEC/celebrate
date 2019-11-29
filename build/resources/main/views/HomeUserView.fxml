@@ -131,7 +131,7 @@
                         <Font name="Serif Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="123.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" text="10/10/2019 - 16:00" textFill="#94188b">
+                  <Label fx:id="labelData" layoutX="123.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" text="10/10/2019 - 16:00" textFill="#94188b">
                      <font>
                         <Font name="Serif Bold" size="15.0" />
                      </font>
@@ -141,12 +141,7 @@
                         <Font name="Serif Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="123.0" layoutY="66.0" prefHeight="25.0" prefWidth="382.0" text="Avenida Castelo Branco - n° 12 - São Vicente " textFill="#94188b">
-                     <font>
-                        <Font name="Serif Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="123.0" layoutY="97.0" prefHeight="25.0" prefWidth="382.0" text="Cidade: Santa Bárbara" textFill="#94188b">
+                  <Label fx:id="place" layoutX="27.0" layoutY="99.0" prefHeight="25.0" prefWidth="482.0" text="Avenida Castelo Branco - n° 12 - São Vicente " textFill="#94188b">
                      <font>
                         <Font name="Serif Bold" size="15.0" />
                      </font>

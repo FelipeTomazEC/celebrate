@@ -4,8 +4,15 @@ public class Spouse extends Person {
     private String password;
     private String phone;
 
-    public Spouse(String name, String cpf, String email, String password, String phone) {
-        super(name, cpf, email);
+    public Spouse(){
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Spouse(String name, String cpf, String email, String password, String phone, String sex) {
+        super(name, cpf, email, sex);
         this.password = password;
         this.phone = phone;
     }

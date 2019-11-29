@@ -1,9 +1,9 @@
 package br.ufop.brTomaz.controllers;
 
 import br.ufop.brTomaz.application.Program;
-import br.ufop.brTomaz.model.entities.Civil;
-import br.ufop.brTomaz.model.entities.Marriage;
-import br.ufop.brTomaz.model.entities.Wedding;
+import br.ufop.brTomaz.model.dao.*;
+import br.ufop.brTomaz.model.entities.*;
+import br.ufop.brTomaz.util.Singleton;
 import br.ufop.brTomaz.util.Utils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -22,7 +22,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MarriageController implements Initializable {
-    protected static Civil civil;
     @FXML
     private JFXTextField txtCEP;
 
@@ -60,7 +59,7 @@ public class MarriageController implements Initializable {
         Utils.setView("/views/CivilView.fxml", contentArea);
     }
 
-    public void registration(ActionEvent actionEvent) throws IOException {
+    public void registration(ActionEvent actionEvent) throws Exception {
         String CEP = txtCEP.getText();
         String street = txtStreet.getText();
         String bairro = txtBairro.getText();
@@ -72,10 +71,46 @@ public class MarriageController implements Initializable {
                 " - " + city + " - " + state;
 
         Marriage marriage = new Marriage(place, new Date());
+        Singleton.getInstance().setMarriage(marriage);
 
-        Wedding wedding = new Wedding(marriage, CivilController.civil);
-
+        this.registers();
         Parent parent = FXMLLoader.load(getClass().getResource("/views/HomeUserView.fxml"));
         Program.stage.getScene().setRoot(parent);
+    }
+
+    private void registers() throws Exception {
+        Wedding wedding = Singleton.getInstance().getWedding();
+        Civil civil = Singleton.getInstance().getWedding().getCivil();
+        Marriage marriage = Singleton.getInstance().getWedding().getMarriage();
+        Spouse spouse1 = Singleton.getInstance().getWedding().getSpouse1();
+        Spouse spouse2 = Singleton.getInstance().getWedding().getSpouse2();
+        Person witness1 = Singleton.getInstance().getWitness1();
+        Person witness2 = Singleton.getInstance().getWitness2();
+
+        CivilDao civilDao = DaoFactory.createCivil();
+        civilDao.insert(civil);
+
+        MarriageDao marriageDao = DaoFactory.createMarriage();
+        marriageDao.insert(marriage);
+
+        PersonDao personDao = DaoFactory.createPerson();
+        personDao.insert(new Person(spouse1.getName(), spouse1.getCpf(), spouse1.getEmail(), spouse1.getSex()));
+        personDao.insert(new Person(spouse2.getName(), spouse2.getCpf(), spouse2.getEmail(), spouse2.getSex()));
+
+        personDao = DaoFactory.createPerson();
+        personDao.insert(new Person(witness1.getName(), witness1.getCpf(), witness1.getEmail(), witness1.getSex()));
+        personDao.insert(new Person(witness2.getName(), witness2.getCpf(), witness2.getEmail(), witness2.getSex()));
+
+        SpouseDao spouseDao = DaoFactory.createSpouse();
+        spouseDao.insert(spouse1);
+        spouseDao.insert(spouse2);
+
+        WeddingDao weddingDao = DaoFactory.createWedding();
+        weddingDao.insert(wedding);
+
+        WitnessDao witnessDao = DaoFactory.createWitness();
+        witnessDao.insert(witness1, wedding);
+        witnessDao.insert(witness2, wedding);
+
     }
 }

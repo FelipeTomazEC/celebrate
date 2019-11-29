@@ -1,7 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68c148c0-a431-44c9-8b10-c227eab3b4ba" name="Default Changelist" comment="" />
+    <list default="true" id="68c148c0-a431-44c9-8b10-c227eab3b4ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/security/SegurancaSistema.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util/Constraints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e73edc0b-d3ed-4e52-b6a6-e29b3304a0c4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/application/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/application/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/CivilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/CivilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/HomeUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/HomeUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/MarriageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/MarriageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/Register1Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/Register2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/Witness1Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/controllers/Witness2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/dao/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/dao/DaoFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/dao/impl/SpouseDaoJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/dao/impl/SpouseDaoJDBC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Civil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Civil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Couple.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Marriage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Marriage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Spouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Spouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Wedding.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/br/ufop/brTomaz/model/entities/Wedding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/HomeUserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/views/HomeUserView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/views/LoginView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/RegisterView1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/RegisterView2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/WitnessView1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/views/WitnessView2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/application/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/application/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/CivilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/CivilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/HomeUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/HomeUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/MarriageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/MarriageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/Register1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/Register2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/Witness1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/WitnessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/controllers/Witness2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/MarriageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/MarriageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/WeddingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/WeddingDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/CivilDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/CivilDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/MarriageDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/MarriageDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/PersonDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/PersonDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/SpouseDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/SpouseDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/WeddingDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/WeddingDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/WitnessDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/dao/impl/WitnessDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Civil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Civil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Couple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Marriage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Marriage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Spouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Spouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Wedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/model/entities/Wedding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util/Singleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/HomeUserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/HomeUserView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/LoginView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/RegisterView1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/RegisterView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/RegisterView2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/WitnessView1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/WitnessView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/WitnessView2.fxml" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,18 +171,22 @@
       <list>
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1U6sS3MRCh3tP8Vs5sYxjyYzMWb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,24 +202,24 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util" />
-      <recent name="$PROJECT_DIR$/src/main/resources/views" />
-      <recent name="$PROJECT_DIR$/src/main/resources/view/images" />
-      <recent name="$PROJECT_DIR$/src/main/resources/view" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="br.ufop.brTomaz.model.dao" />
-      <recent name="br.ufop.brTomaz.controllers" />
-      <recent name="br.ufop.brTomaz.application" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/views/icons" />
       <recent name="$PROJECT_DIR$/src/main/resources/views/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/view" />
       <recent name="$PROJECT_DIR$/src/main/resources/view/icons" />
       <recent name="$PROJECT_DIR$/src/main/resources/view/images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.ufop.brTomaz.model.dao" />
+      <recent name="br.ufop.brTomaz.controllers" />
+      <recent name="br.ufop.brTomaz.application" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz" />
+      <recent name="$PROJECT_DIR$/src/main/java/br/ufop/brTomaz/util" />
+      <recent name="$PROJECT_DIR$/src/main/resources/views" />
+      <recent name="$PROJECT_DIR$/src/main/resources/view/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources/view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -204,7 +278,12 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2391284a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -254,11 +333,26 @@
       <workItem from="1574983590216" duration="3694000" />
       <workItem from="1574987692947" duration="43000" />
       <workItem from="1574989293032" duration="4990000" />
-      <workItem from="1574996298073" duration="4251000" />
+      <workItem from="1574996298073" duration="9115000" />
+      <workItem from="1575006274832" duration="10713000" />
+      <workItem from="1575018940908" duration="10198000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

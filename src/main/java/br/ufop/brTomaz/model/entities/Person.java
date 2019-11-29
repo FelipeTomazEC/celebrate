@@ -9,10 +9,13 @@ public class Person implements Serializable {
     private String email;
     private String sex;
 
-    public Person(String name, String cpf, String email) {
+    public Person(){}
+
+    public Person(String name, String cpf, String email, String sex) {
         this.name = name;
         this.cpf = cpf;
         this.email = email;
+        this.sex = sex;
     }
 
 
@@ -30,6 +33,10 @@ public class Person implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSex() {
+        return sex;
     }
 
     public void setEmail(String email) {

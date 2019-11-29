@@ -1,6 +1,10 @@
 package br.ufop.brTomaz.controllers;
 
 import br.ufop.brTomaz.application.Program;
+import br.ufop.brTomaz.model.dao.impl.MarriageDaoJDBC;
+import br.ufop.brTomaz.model.dao.impl.WeddingDaoJDBC;
+import br.ufop.brTomaz.model.db.DB;
+import br.ufop.brTomaz.model.entities.Marriage;
 import br.ufop.brTomaz.util.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,14 +14,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeUserController implements Initializable {
+    @FXML
+    private Label place;
+
     @FXML
     private Pane contentArea;
 
@@ -25,7 +34,15 @@ public class HomeUserController implements Initializable {
     private PieChart pieServices;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        WeddingDaoJDBC weddingDaoJDBC = new WeddingDaoJDBC(DB.getConnection());
+        int idMarriage = weddingDaoJDBC.idMarriage(Program.currentUser.getCpf());
+
+        MarriageDaoJDBC marriageDaoJDBC = new MarriageDaoJDBC(DB.getConnection());
+        Marriage marriage = marriageDaoJDBC.findById(idMarriage);
+
+        place.setText(marriage.getPlace());
         loadServices(pieServices);
     }
 

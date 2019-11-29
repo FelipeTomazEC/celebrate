@@ -8,6 +8,10 @@ public class Civil {
     private String place;
     private Date date;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Civil(String place, Date date) {
         this.place = place;
         this.date = date;

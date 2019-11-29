@@ -6,9 +6,8 @@ import br.ufop.brTomaz.model.db.DbException;
 import br.ufop.brTomaz.model.entities.Civil;
 import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Date;
 import java.util.List;
 
 public class CivilDaoJDBC implements CivilDao {
@@ -30,25 +29,19 @@ public class CivilDaoJDBC implements CivilDao {
             );
 
             preparedStatement.setString(1, civil.getPlace());
-            preparedStatement.setDate(2, new java.sql.Date(civil.getDate().getTime()));
+            preparedStatement.setDate(2, new java.sql.Date(new Date().getTime()));
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            Alert alert;
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT MAX(id) FROM Civil"
+            );
 
-            if(rowsAffected > 0) {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Cadastro efetuado com sucesso");
-            }
-            else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Não foi possível realizar o cadastro");
-                throw new DbException("Unexpected error! No rows affected");
-            }
+            int id = (resultSet.next()) ? resultSet.getInt(1) : -1;
+            civil.setId(id);
+
+            System.out.println("Civil Id: "+ civil.getId());
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }

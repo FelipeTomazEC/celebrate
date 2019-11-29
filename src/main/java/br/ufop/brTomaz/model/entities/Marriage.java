@@ -9,6 +9,10 @@ public class Marriage implements Serializable {
     private String place;
     private Date date;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Marriage(String place, Date date) {
         this.place = place;
         this.date = date;

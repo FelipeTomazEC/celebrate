@@ -4,11 +4,8 @@ import br.ufop.brTomaz.model.dao.WeddingDao;
 import br.ufop.brTomaz.model.db.DB;
 import br.ufop.brTomaz.model.db.DbException;
 import br.ufop.brTomaz.model.entities.Wedding;
-import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class WeddingDaoJDBC implements WeddingDao {
@@ -25,30 +22,24 @@ public class WeddingDaoJDBC implements WeddingDao {
         try {
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO Casamento " +
-                            "(fk_cerimônia_id, fk_civil_id) " +
-                            "VALUES (?, ?)"
+                            "(fk_cerimonia_id, fk_civil_id, fk_Conjuge1, fk_Conjuge2) " +
+                            "VALUES (?, ?, ?, ?)"
             );
 
-            preparedStatement.setInt(1, wedding.getCivil().getId());
-            preparedStatement.setInt(2, wedding.getMarriage().getId());
+            preparedStatement.setInt(2, wedding.getCivil().getId());
+            preparedStatement.setInt(1, wedding.getMarriage().getId());
+            preparedStatement.setString(3, wedding.getSpouse1().getCpf());
+            preparedStatement.setString(4, wedding.getSpouse2().getCpf());
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            Alert alert;
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT MAX(id) FROM Casamento"
+            );
 
-            if(rowsAffected > 0) {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Cadastro efetuado com sucesso");
-            }
-            else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cônjuge");
-                alert.setHeaderText("Confirmação de cadastro");
-                alert.setContentText("Não foi possível realizar o cadastro");
-                throw new DbException("Unexpected error! No rows affected");
-            }
+            int id = (resultSet.next()) ? resultSet.getInt(1) : -1;
+            wedding.setId(id);
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
@@ -63,17 +54,40 @@ public class WeddingDaoJDBC implements WeddingDao {
     }
 
     @Override
-    public void deleteById(String id) {
-
+    public void deleteById(Integer id) {
     }
 
     @Override
-    public Wedding findById(String id) {
-        return null;
+    public void findById(Integer id) {
     }
 
     @Override
     public List<Wedding> findAll() {
+        return null;
+    }
+
+    public Integer idMarriage(String cpf) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            preparedStatement = connection.prepareStatement(
+                    "SELECT fk_Cerimonia_id " +
+                            "FROM Casamento " +
+                            "WHERE fk_Conjuge1 = ? OR fk_Conjuge2 = ?"
+            );
+
+            preparedStatement.setString(1, cpf);
+            preparedStatement.setString(2, cpf);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                return resultSet.getInt("fk_Cerimonia_id");
+            }
+        } catch (SQLException e) {
+            throw  new DbException(e.getMessage());
+        }
         return null;
     }
 }

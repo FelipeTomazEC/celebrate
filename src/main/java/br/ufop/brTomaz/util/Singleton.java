@@ -10,6 +10,15 @@ public class Singleton {
     private Person witness1;
     private Person witness2;
     private Civil civil;
+
+    public Spouse getSpouse1() {
+        return spouse1;
+    }
+
+    public Spouse getSpouse2() {
+        return spouse2;
+    }
+
     private Marriage marriage;
 
     private Singleton(){
@@ -22,7 +31,6 @@ public class Singleton {
 
         return instance;
     }
-
 
     public void setSpouse1(Spouse spouse1) {
         this.spouse1 = spouse1;
@@ -48,6 +56,14 @@ public class Singleton {
         this.marriage = marriage;
     }
 
+    public Person getWitness1() {
+        return witness1;
+    }
+
+    public Person getWitness2() {
+        return witness2;
+    }
+
     public Wedding getWedding() throws Exception {
         if(spouse1 == null || spouse2 == null){
             throw new Exception("A wedding must have a couple associated with it.");
@@ -61,6 +77,9 @@ public class Singleton {
             throw new Exception("A wedding must have a civil marriage.");
         }
 
-        return new Wedding(this.marriage, this.civil);
+        Wedding wedding = new Wedding(this.marriage, this.civil, this.spouse1, this.spouse2);
+        wedding.addWitnesses(witness1, witness2);
+
+        return wedding;
     }
 }
