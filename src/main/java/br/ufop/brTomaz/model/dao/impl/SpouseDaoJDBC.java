@@ -1,15 +1,13 @@
 package br.ufop.brTomaz.model.dao.impl;
 
+import br.ufop.brTomaz.model.dao.PersonDao;
 import br.ufop.brTomaz.model.dao.SpouseDao;
 import br.ufop.brTomaz.model.db.DB;
 import br.ufop.brTomaz.model.db.DbException;
 import br.ufop.brTomaz.model.entities.Spouse;
 import br.ufop.brTomaz.security.SegurancaSistema;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class SpouseDaoJDBC implements SpouseDao {
@@ -21,18 +19,20 @@ public class SpouseDaoJDBC implements SpouseDao {
 
     public void insert(Spouse spouse) {
         PreparedStatement preparedStatement = null;
+        PersonDao personDao = new PersonDaoJDBC(DB.getConnection());
+        personDao.insert(spouse);
 
         try {
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO Conjuge " +
-                            "(senha, telefone, fk_Pessoa_cpf) " +
+                            "(senha, telefone, fk_Pessoa_id) " +
                             "VALUES (?, ?, ?)"
             );
 
             preparedStatement.setString(1, SegurancaSistema.
                     criptografarSenha(spouse.getPassword()));
             preparedStatement.setString(2, spouse.getPhone());
-            preparedStatement.setString(3, spouse.getCpf());
+            preparedStatement.setInt(3, spouse.getId());
 
             preparedStatement.executeUpdate();
 
@@ -50,12 +50,12 @@ public class SpouseDaoJDBC implements SpouseDao {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
 
     }
 
     @Override
-    public Spouse findById(String id) {
+    public Spouse findById(Integer id) {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
@@ -63,9 +63,9 @@ public class SpouseDaoJDBC implements SpouseDao {
             preparedStatement = connection.prepareStatement(
                     "SELECT * " +
                             "FROM Conjuge, Pessoa " +
-                            "WHERE Conjuge.fk_Pessoa_cpf = ?"
+                            "WHERE Conjuge.fk_Pessoa_id = ?"
             );
-            preparedStatement.setString(1, id);
+            preparedStatement.setInt(1, id);
 
             resultSet = preparedStatement.executeQuery();
 
@@ -92,4 +92,5 @@ public class SpouseDaoJDBC implements SpouseDao {
     public List<Spouse> findAll() {
         return null;
     }
+
 }

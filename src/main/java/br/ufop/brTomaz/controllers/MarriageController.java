@@ -114,6 +114,7 @@ public class MarriageController implements Initializable {
         Singleton.getInstance().setMarriage(marriage);
 
         this.registers();
+        Program.currentUser = Singleton.getInstance().getSpouse1();
         Parent parent = FXMLLoader.load(getClass().getResource("/views/HomeUserView.fxml"));
         Program.stage.getScene().setRoot(parent);
     }
@@ -134,12 +135,8 @@ public class MarriageController implements Initializable {
         marriageDao.insert(marriage);
 
         PersonDao personDao = DaoFactory.createPerson();
-        personDao.insert(new Person(spouse1.getName(), spouse1.getCpf(), spouse1.getEmail(), spouse1.getSex()));
-        personDao.insert(new Person(spouse2.getName(), spouse2.getCpf(), spouse2.getEmail(), spouse2.getSex()));
-
-        personDao = DaoFactory.createPerson();
-        personDao.insert(new Person(witness1.getName(), witness1.getCpf(), witness1.getEmail(), witness1.getSex()));
-        personDao.insert(new Person(witness2.getName(), witness2.getCpf(), witness2.getEmail(), witness2.getSex()));
+        personDao.insert(witness1);
+        personDao.insert(witness2);
 
         SpouseDao spouseDao = DaoFactory.createSpouse();
         spouseDao.insert(spouse1);

@@ -68,9 +68,9 @@ public class ServiceDaoJDBC implements ServiceDao {
                 String name = resultSet.getString("nome");
                 Double value = resultSet.getDouble("valor");
                 Integer id = resultSet.getInt("id");
-                String enterpriseCnpj = resultSet.getString("fk_Empresa_id");
+                Integer enterpriseId = resultSet.getInt("fk_Empresa_id");
 
-                Enterprise enterprise = this.getEnterprise(enterpriseCnpj);
+                Enterprise enterprise = this.getEnterprise(enterpriseId);
                 Service service = new Service(name, value, enterprise);
                 service.setId(id);
 
@@ -93,8 +93,8 @@ public class ServiceDaoJDBC implements ServiceDao {
         return (resultSet.next()) ? resultSet.getInt(1) : -1;
     }
 
-    private Enterprise getEnterprise (String cnpj) throws SQLException {
+    private Enterprise getEnterprise (Integer id) throws SQLException {
         EnterpriseDao enterpriseDao = new EnterpriseDaoJDBC(DB.getConnection());
-        return enterpriseDao.findByCnpj(cnpj);
+        return enterpriseDao.findById(id);
     }
 }

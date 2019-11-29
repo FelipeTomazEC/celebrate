@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EnterpriseDao {
     void insert (Enterprise enterprise);
-    Enterprise findByCnpj (String cnpj);
-    void deleteByCnpj(String cnpj);
+    Enterprise findById (Integer id);
+    void deleteById(Integer id);
     List<Enterprise> findAll();
 }

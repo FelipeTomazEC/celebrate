@@ -28,8 +28,8 @@ public class WeddingDaoJDBC implements WeddingDao {
 
             preparedStatement.setInt(2, wedding.getCivil().getId());
             preparedStatement.setInt(1, wedding.getMarriage().getId());
-            preparedStatement.setString(3, wedding.getSpouse1().getCpf());
-            preparedStatement.setString(4, wedding.getSpouse2().getCpf());
+            preparedStatement.setInt(3, wedding.getSpouse1().getId());
+            preparedStatement.setInt(4, wedding.getSpouse2().getId());
 
             preparedStatement.executeUpdate();
 
@@ -66,7 +66,7 @@ public class WeddingDaoJDBC implements WeddingDao {
         return null;
     }
 
-    public Integer idMarriage(String cpf) {
+    public Integer idMarriage(Integer personId) {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
@@ -77,8 +77,8 @@ public class WeddingDaoJDBC implements WeddingDao {
                             "WHERE fk_Conjuge1 = ? OR fk_Conjuge2 = ?"
             );
 
-            preparedStatement.setString(1, cpf);
-            preparedStatement.setString(2, cpf);
+            preparedStatement.setInt(1, personId);
+            preparedStatement.setInt(2, personId);
 
             resultSet = preparedStatement.executeQuery();
 

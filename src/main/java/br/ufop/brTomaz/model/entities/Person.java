@@ -8,6 +8,7 @@ public class Person implements Serializable {
     private String cpf;
     private String email;
     private String sex;
+    private Integer id;
 
     public Person(){}
 
@@ -18,6 +19,13 @@ public class Person implements Serializable {
         this.sex = sex;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

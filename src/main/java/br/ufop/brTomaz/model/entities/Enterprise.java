@@ -3,6 +3,7 @@ package br.ufop.brTomaz.model.entities;
 import java.util.Objects;
 
 public class Enterprise {
+    private Integer id;
     private String cnpj;
     private String phone;
     private String place;
@@ -13,6 +14,14 @@ public class Enterprise {
         this.phone = phone;
         this.place = place;
         this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCnpj() {

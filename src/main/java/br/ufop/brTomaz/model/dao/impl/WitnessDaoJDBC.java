@@ -24,11 +24,11 @@ public class WitnessDaoJDBC implements WitnessDao {
         try {
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO Testemunha " +
-                            "(fk_pessoa_cpf, fk_casamento_id) " +
+                            "(fk_pessoa_id, fk_casamento_id) " +
                             "VALUES (?, ?)"
             );
 
-            preparedStatement.setString(1, person.getCpf());
+            preparedStatement.setInt(1, person.getId());
             preparedStatement.setInt(2, wedding.getId());
 
             preparedStatement.executeUpdate();

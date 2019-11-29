@@ -39,7 +39,7 @@ public class HomeUserController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         WeddingDaoJDBC weddingDaoJDBC = new WeddingDaoJDBC(DB.getConnection());
-        int idMarriage = weddingDaoJDBC.idMarriage(Program.currentUser.getCpf());
+        int idMarriage = weddingDaoJDBC.idMarriage(Program.currentUser.getId());
 
         MarriageDaoJDBC marriageDaoJDBC = new MarriageDaoJDBC(DB.getConnection());
         Marriage marriage = marriageDaoJDBC.findById(idMarriage);
