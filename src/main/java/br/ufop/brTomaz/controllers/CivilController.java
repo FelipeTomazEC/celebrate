@@ -6,6 +6,8 @@ import br.ufop.brTomaz.util.Utils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -44,7 +47,35 @@ public class CivilController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        ObservableList<String> observableList = FXCollections.observableArrayList(Arrays.asList(
+                "AC",
+                "AL",
+                "AP",
+                "AM",
+                "BA",
+                "CE",
+                "DF",
+                "ES",
+                "GO",
+                "MA",
+                "MT",
+                "MS",
+                "MG",
+                "PA",
+                "PB",
+                "PR",
+                "PE",
+                "PI",
+                "RJ",
+                "RN",
+                "RS",
+                "RO",
+                "RR",
+                "SC",
+                "SP",
+                "SE",
+                "TO"));
+        cmbState.setItems(observableList);
     }
 
     public void backPage(MouseEvent mouseEvent) throws IOException {

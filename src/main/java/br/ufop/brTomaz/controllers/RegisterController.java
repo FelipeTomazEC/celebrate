@@ -44,8 +44,8 @@ public class RegisterController implements Initializable {
     @FXML
     private JFXPasswordField txtPassword;
 
-    @FXML
-    private JFXPasswordField txtConfirmPassword;
+   // @FXML
+    //private JFXPasswordField txtConfirmPassword;
 
     @FXML
     private JFXButton btnNext;
@@ -94,7 +94,7 @@ public class RegisterController implements Initializable {
                                 .or(txtEmail.textProperty().isEmpty()
                                         .or(txtPassword.textProperty().isEmpty()
                                                 .or(txtPhone.textProperty().isEmpty()
-                                                        .or(txtConfirmPassword.textProperty().isEmpty())
+                                                       // .or(txtConfirmPassword.textProperty().isEmpty())
                                                         .or(sizeCPF)
                                                         .or(sizePhone)
                                                 )
@@ -120,7 +120,7 @@ public class RegisterController implements Initializable {
         String phone = txtPhone.getText();
         String sex = cmbSex.getSelectionModel().getSelectedItem();
         String password = txtPassword.getText();
-        String confirmPassword = txtConfirmPassword.getText();
+        //String confirmPassword = txtConfirmPassword.getText();
 
         Spouse spouse = new Spouse(name, cpf, email, password, phone, sex);
 

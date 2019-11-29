@@ -4,8 +4,6 @@ import br.ufop.brTomaz.model.dao.MarriageDao;
 import br.ufop.brTomaz.model.db.DB;
 import br.ufop.brTomaz.model.db.DbException;
 import br.ufop.brTomaz.model.entities.Marriage;
-import br.ufop.brTomaz.model.entities.Person;
-import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.List;
