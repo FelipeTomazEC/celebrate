@@ -7,7 +7,10 @@ import br.ufop.brTomaz.util.Singleton;
 import br.ufop.brTomaz.util.Utils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +21,13 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MarriageController implements Initializable {
+    protected String date;
+
     @FXML
     private JFXTextField txtCEP;
 
@@ -38,6 +44,9 @@ public class MarriageController implements Initializable {
     private JFXTextField txtCity;
 
     @FXML
+    private JFXDatePicker datePicker;
+
+    @FXML
     private JFXComboBox<String> cmbState;
 
     @FXML
@@ -48,7 +57,36 @@ public class MarriageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> observableList = FXCollections.observableArrayList(Arrays.asList(
+                "AC",
+                "AL",
+                "AP",
+                "AM",
+                "BA",
+                "CE",
+                "DF",
+                "ES",
+                "GO",
+                "MA",
+                "MT",
+                "MS",
+                "MG",
+                "PA",
+                "PB",
+                "PR",
+                "PE",
+                "PI",
+                "RJ",
+                "RN",
+                "RS",
+                "RO",
+                "RR",
+                "SC",
+                "SP",
+                "SE",
+                "TO"));
 
+        cmbState.setItems(observableList);
     }
 
     public void closeApp(MouseEvent mouseEvent) {
@@ -66,6 +104,8 @@ public class MarriageController implements Initializable {
         String number = txtNumber.getText();
         String city = txtCity.getText();
         String state = cmbState.getSelectionModel().getSelectedItem();
+
+        date = datePicker.getValue().toString();
 
         String place = CEP + " - " + street +  " - " + bairro + " - " + number +
                 " - " + city + " - " + state;

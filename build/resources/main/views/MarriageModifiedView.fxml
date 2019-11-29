@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import jfxtras.scene.control.ImageViewButton?>
-<?import jfxtras.scene.control.LocalDateTimeTextField?>
 
 <Pane fx:id="contentArea" prefHeight="600.0" prefWidth="550.0" style="-fx-background-radius: 0px;" styleClass="paneHome" stylesheets="@css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufop.brTomaz.controllers.MarriageModifiedController">
    <children>
@@ -32,12 +32,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TextField layoutX="124.0" layoutY="191.0" prefHeight="35.0" prefWidth="160.0" styleClass="txtEndModified">
+      <TextField fx:id="txtCEP" layoutX="124.0" layoutY="191.0" prefHeight="35.0" prefWidth="160.0" styleClass="txtEndModified">
          <font>
             <Font name="Serif Regular" size="14.0" />
          </font>
       </TextField>
-      <LocalDateTimeTextField layoutX="314.0" layoutY="191.0" prefHeight="35.0" prefWidth="109.0" />
       <TextField layoutX="124.0" layoutY="255.0" prefHeight="35.0" prefWidth="300.0" styleClass="txtEndModified">
          <font>
             <Font name="Serif Regular" size="14.0" />
@@ -99,5 +98,6 @@
             <Image url="@icons/icons8-wedding-rings-60.png" />
          </image>
       </ImageViewButton>
+      <JFXDatePicker layoutX="317.0" layoutY="194.0" prefHeight="29.0" prefWidth="109.0" />
    </children>
 </Pane>

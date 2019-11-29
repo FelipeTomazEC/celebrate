@@ -18,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +25,9 @@ import java.util.ResourceBundle;
 public class HomeUserController implements Initializable {
     @FXML
     private Label place;
+
+    @FXML
+    private Label data;
 
     @FXML
     private Pane contentArea;
@@ -43,6 +45,9 @@ public class HomeUserController implements Initializable {
         Marriage marriage = marriageDaoJDBC.findById(idMarriage);
 
         place.setText(marriage.getPlace());
+        String[] dat = marriage.getDate().toString().split("-");
+        data.setText(dat[2] + "/" + dat[1] + "/" + dat[0]);
+
         loadServices(pieServices);
     }
 

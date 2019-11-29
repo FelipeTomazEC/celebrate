@@ -131,9 +131,9 @@
                         <Font name="Serif Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelData" layoutX="123.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" text="10/10/2019 - 16:00" textFill="#94188b">
+                  <Label fx:id="data" layoutX="111.0" layoutY="20.0" prefHeight="25.0" prefWidth="150.0" text="10/10/2019 - 16:00" textFill="#94188b">
                      <font>
-                        <Font name="Serif Bold" size="15.0" />
+                        <Font name="Serif Bold" />
                      </font>
                   </Label>
                   <Label layoutX="59.0" layoutY="66.0" prefHeight="25.0" prefWidth="74.0" text="Local: " textFill="#3d145c">
@@ -141,9 +141,9 @@
                         <Font name="Serif Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="place" layoutX="27.0" layoutY="99.0" prefHeight="25.0" prefWidth="482.0" text="Avenida Castelo Branco - n° 12 - São Vicente " textFill="#94188b">
+                  <Label fx:id="place" layoutX="111.0" layoutY="66.0" prefHeight="25.0" prefWidth="382.0" text="Avenida Castelo Branco - n° 12 - São Vicente " textFill="#94188b">
                      <font>
-                        <Font name="Serif Bold" size="15.0" />
+                        <Font name="Serif Bold" size="12.0" />
                      </font>
                   </Label>
                   <MaterialIconView fill="#3d145c" glyphName="LOCATION_CITY" layoutX="27.0" layoutY="89.0" size="1.6em" />

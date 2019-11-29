@@ -70,11 +70,6 @@
             <Font name="Serif Regular" size="14.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField fx:id="txtConfirmPassword" focusColor="WHITE" layoutX="50.0" layoutY="477.0" prefHeight="35.0" prefWidth="300.0" promptText="Confirme a senha" styleClass="txtField" unFocusColor="WHITE">
-         <font>
-            <Font name="Serif Regular" size="14.0" />
-         </font>
-      </JFXPasswordField>
       <Label fx:id="labelPerson" layoutX="153.0" layoutY="208.0" text="Primeira pessoa" textFill="#785097">
          <font>
             <Font name="Ebrima Bold" size="14.0" />

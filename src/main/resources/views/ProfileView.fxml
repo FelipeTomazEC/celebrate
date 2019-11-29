@@ -34,14 +34,9 @@
                   <Font name="Serif Regular" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtPhone" focusColor="#3d145c" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Telefone" unFocusColor="#3d145c">
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
-            </JFXTextField>
          </children>
       </VBox>
-      <JFXButton fx:id="btnUpdate" layoutX="124.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btnService" stylesheets="@css/stylesheet.css" text="Alterar dados" textFill="#3d145c">
+      <JFXButton fx:id="btnUpdate" layoutX="124.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#update" prefHeight="40.0" prefWidth="300.0" styleClass="btnService" stylesheets="@css/stylesheet.css" text="Alterar dados" textFill="#3d145c">
          <graphic>
             <MaterialIconView fill="WHITE" glyphName="REFRESH" size="1.5em" styleClass=".icon" />
          </graphic>
