@@ -3,23 +3,23 @@ package br.ufop.brTomaz.model.entities;
 import java.util.Objects;
 
 public class Enterprise {
-    private Integer cnpj;
+    private String cnpj;
     private String phone;
     private String place;
     private String name;
 
-    public Enterprise(Integer cnpj, String phone, String place, String name) {
+    public Enterprise(String cnpj, String phone, String place, String name) {
         this.cnpj = cnpj;
         this.phone = phone;
         this.place = place;
         this.name = name;
     }
 
-    public Integer getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Integer cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
