@@ -34,6 +34,9 @@ public class PersonDaoJDBC implements PersonDao {
             preparedStatement.setString(4, person.getSex());
             preparedStatement.executeUpdate();
 
+            Integer id = this.getGeneratedId();
+            person.setId(id);
+
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
@@ -174,9 +177,21 @@ public class PersonDaoJDBC implements PersonDao {
             String name = resultSet.getString("nome");
             String email = resultSet.getString("email");
             String sex = resultSet.getString("sexo");
+            Integer id = resultSet.getInt("id");
 
-            return new Person(name, cpf, email, sex);
+            Person person = new Person(name, cpf, email, sex);
+            person.setId(id);
+
+            return person;
         }
         return null;
+    }
+
+    private Integer getGeneratedId() throws SQLException {
+        String sql = "SELECT MAX(id) FROM pessoa";
+        Statement statement = this.connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        return (resultSet.next()) ? resultSet.getInt(1) : -1;
     }
 }

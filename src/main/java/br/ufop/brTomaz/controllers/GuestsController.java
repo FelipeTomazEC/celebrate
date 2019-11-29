@@ -57,7 +57,7 @@ public class GuestsController implements Initializable {
         personDaoJDBC.insert(person);
 
         WeddingDaoJDBC weddingDaoJDBC = new WeddingDaoJDBC(DB.getConnection());
-        int idMarriage = weddingDaoJDBC.idMarriage(Program.currentUser.getCpf());
+        int idMarriage = weddingDaoJDBC.idMarriage(Program.currentUser.getId());
 
         ConvidaDaoJDBC convidaDaoJDBC = new ConvidaDaoJDBC(DB.getConnection());
         //Program.currentUser.

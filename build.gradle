@@ -34,7 +34,7 @@ applicationDefaultJvmArgs = ["--add-exports=javafx.graphics/com.sun.javafx.stage
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
     compile group: 'com.jfoenix', name: 'jfoenix', version: '9.0.9'
     compile 'de.jensd:fontawesomefx-materialicons:2.2.0-9'
     compile group: 'org.jfxtras', name: 'jfxtras-controls', version: '10.0-r1'

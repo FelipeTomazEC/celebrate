@@ -98,7 +98,7 @@ public class LoginController implements Initializable {
         if(currentUser != null)
         {
             SpouseDao spouseDao = DaoFactory.createSpouse();
-            Spouse spouse = spouseDao.findById(currentUser.getCpf());
+            Spouse spouse = spouseDao.findById(currentUser.getId());
             permission.setValue(spouse.getPassword().equals(SegurancaSistema.criptografarSenha(password)));
             tries.set(tries.getValue() - 1);
         }
