@@ -11,6 +11,7 @@ public class Service implements Serializable {
     public Service(String name, Double value, Enterprise enterprise) {
         this.name = name;
         this.value = value;
+        this.enterprise = enterprise;
     }
 
     public Enterprise getEnterprise() {

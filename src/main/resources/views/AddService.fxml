@@ -2,11 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -23,40 +22,122 @@
          </font>
       </Label>
       <MaterialIconView fill="#d9b1d9" glyphName="BUSINESS_CENTER" layoutX="255.0" layoutY="84.0" size="3.0em" />
-      <JFXComboBox focusColor="#3d145c" layoutX="136.0" layoutY="226.0" prefHeight="35.0" prefWidth="300.0" promptText="Serviços cadastrados" unFocusColor="#3d145c" />
-      <Label layoutX="135.0" layoutY="269.0" text="Nome" textFill="#785097">
+      <Label layoutX="129.0" layoutY="157.0" text="Nome (Serviço)" textFill="#785097">
          <font>
             <Font name="Ebrima Bold" size="10.0" />
          </font>
       </Label>
-      <TextField layoutX="134.0" layoutY="282.0" prefHeight="35.0" prefWidth="300.0" styleClass="txtEndModified">
+      <JFXTextField fx:id="txtName" layoutX="122.0" layoutY="178.0" prefHeight="35.0" prefWidth="149.0" styleClass="txtEndModified">
          <font>
             <Font name="Serif Regular" size="14.0" />
          </font>
-      </TextField>
-      <Label layoutX="135.0" layoutY="327.0" text="Valor (R$)" textFill="#785097">
+      </JFXTextField>
+      <Label layoutX="305.0" layoutY="157.0" text="Valor (R$)" textFill="#785097">
          <font>
             <Font name="Ebrima Bold" size="10.0" />
          </font>
       </Label>
-      <TextField layoutX="134.0" layoutY="340.0" prefHeight="35.0" prefWidth="149.0" styleClass="txtEndModified">
+      <JFXTextField fx:id="txtValue" layoutX="303.0" layoutY="178.0" prefHeight="35.0" prefWidth="121.0" styleClass="txtEndModified">
          <font>
             <Font name="Serif Regular" size="14.0" />
          </font>
-      </TextField>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="265.0" layoutY="541.0" onAction="#nextPage" styleClass="btnNextService" stylesheets="@css/stylesheet.css">
+      </JFXTextField>
+      <JFXTextField fx:id="txtNameEnterprise" layoutX="122.0" layoutY="237.0" prefHeight="35.0" prefWidth="149.0" styleClass="txtEndModified">
          <font>
-            <Font name="Serif Bold" size="13.0" />
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtCEP" layoutX="122.0" layoutY="295.0" prefHeight="35.0" prefWidth="149.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtCNPJ" layoutX="283.0" layoutY="295.0" prefHeight="35.0" prefWidth="141.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtStreet" layoutX="122.0" layoutY="359.0" prefHeight="35.0" prefWidth="300.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtNeighborhood" layoutX="122.0" layoutY="419.0" prefHeight="35.0" prefWidth="160.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtNumber" layoutX="314.0" layoutY="419.0" prefHeight="35.0" prefWidth="109.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtCity" layoutX="122.0" layoutY="479.0" prefHeight="35.0" prefWidth="160.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cmbState" focusColor="WHITE" layoutX="312.0" layoutY="475.0" prefHeight="35.0" prefWidth="109.0" unFocusColor="#e710cb" />
+      <JFXButton layoutX="125.0" layoutY="546.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#addService" prefHeight="40.0" prefWidth="300.0" styleClass="btnService" stylesheets="@css/stylesheet.css" text="Adicionar serviço">
+         <graphic>
+            <MaterialIconView fill="WHITE" glyphName="ADD_CIRCLE" size="1.5em" styleClass=".icon" />
+         </graphic>
+         <font>
+            <Font name="Serif Regular" size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <effect>
-            <ColorAdjust brightness="0.24" contrast="0.71" hue="0.56" saturation="0.56" />
-         </effect>
-         <graphic>
-            <MaterialIconView fill="#3d145c" glyphName="NAVIGATE_NEXT" size="1.5em" text="" />
-         </graphic>
       </JFXButton>
+      <Label layoutX="123.0" layoutY="282.0" text="CEP" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="346.0" text="Rua" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="403.0" text="Bairro" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="315.0" layoutY="403.0" text="Número" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="124.0" layoutY="462.0" text="Cidade" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="313.0" layoutY="462.0" text="Estado" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="282.0" layoutY="282.0" text="CNPJ" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="224.0" text="Nome" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtPhone" layoutX="300.0" layoutY="237.0" prefHeight="35.0" prefWidth="128.0" styleClass="txtEndModified">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="303.0" layoutY="224.0" text="Telefone" textFill="#785097">
+         <font>
+            <Font name="Ebrima Bold" size="10.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
